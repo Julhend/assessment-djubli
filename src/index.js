@@ -1,4 +1,6 @@
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
+
 const express = require('express');
 
 const app = express();
@@ -11,7 +13,6 @@ app.use(express.json());
  * Reference: https://www.npmjs.com/package/read-dir-deep
  */
 const readDir = require('read-dir-deep');
-const path = require('path');
 
 const routesPath = path.resolve('routes');
 const filePaths = readDir.readDirDeepSync(routesPath);
@@ -22,8 +23,7 @@ filePaths.forEach((filePath) => {
   app.use(route);
 });
 
-const port = 3000;
-console.log(port);
+const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`API is running in http://localhost:${port}`);
 });

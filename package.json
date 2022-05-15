@@ -4,7 +4,7 @@
   "description": "creating api for DJUBLI assessment",
   "main": "index.js",
   "scripts": {
-    "dev":"nodemon src/index.js",
+    "dev": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "lint:init": "eslint --init",
@@ -15,9 +15,12 @@
   "dependencies": {
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "moment": "^2.29.3",
+    "pg": "^8.7.3",
     "read-dir-deep": "^7.0.1",
     "sequelize": "^6.19.0",
-    "sequelize-cli": "^6.4.1"
+    "sequelize-cli": "^6.4.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "eslint": "^8.15.0",
