@@ -2,9 +2,9 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('cars', {
       id: {
+        type: Sequelize.UUID,
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.STRING,
       },
       carBrand: {
         type: Sequelize.STRING,
