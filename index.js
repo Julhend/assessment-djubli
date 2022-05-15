@@ -1,5 +1,5 @@
 const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '../.env') });
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 const express = require('express');
 
@@ -17,7 +17,7 @@ const readDir = require('read-dir-deep');
 const routesPath = path.resolve('routes');
 const filePaths = readDir.readDirDeepSync(routesPath);
 filePaths.forEach((filePath) => {
-  const relativeFilePath = `./src/${filePath}`;
+  const relativeFilePath = `./${filePath}`;
   console.log(`${relativeFilePath} loaded!`);
   const route = require(relativeFilePath);
   app.use(route);

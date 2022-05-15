@@ -5,7 +5,7 @@ const {
 const moment = require('moment');
 
 module.exports = (sequelize, DataTypes) => {
-  class CreditDetail extends Model {
+  class CarPrice extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,30 +13,24 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasMany(models.notes);
+      this.belongsTo(models.Car);
     }
   }
-  CreditDetail.init({
+  CarPrice.init({
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
       defaultValue: v4,
     },
-    firstName: {
+    price: {
+      type: DataTypes.INTEGER,
+    },
+    creditPrice: {
+      type: DataTypes.INTEGER,
+    },
+    address: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    creditType: {
-      type: DataTypes.STRING,
-    },
-    downPayment: {
-      type: DataTypes.INTEGER,
-    },
-    tenor: {
-      type: DataTypes.INTEGER,
-    },
-    installment: {
-      type: DataTypes.INTEGER,
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -51,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     paranoid: true,
-    modelName: 'CreditDetail',
+    modelName: 'CarPrice',
   });
-  return CreditDetail;
+  return CarPrice;
 };

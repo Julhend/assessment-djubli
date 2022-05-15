@@ -1,5 +1,5 @@
 const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '../../.env') });
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
 const {
   DB_USERNAME, DB_PASSWORD, DB_HOST, DB_DATABASE, DB_DIALECT,

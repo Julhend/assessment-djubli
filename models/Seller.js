@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasMany(models.notes);
+      this.hasMany(models.Car);
     }
   }
   Seller.init({
